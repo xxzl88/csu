@@ -1,0 +1,17 @@
+---
+layout: default
+---
+<article class="article-page">
+  <header class="article-header">
+    <div class="post-meta"><time datetime="{{ page.date | date_to_xmlschema }}">{{ page.date | date: "%Y年%m月%d日" }}</time>{% if page.categories.first %}<span class="dot">·</span><span>{{ page.categories | join: ' / ' }}</span>{% endif %}</div>
+    <h1>{{ page.title }}</h1>
+    {% if page.description %}<p class="article-lead">{{ page.description }}</p>{% endif %}
+  </header>
+  <div class="article-layout">
+    <div class="article-body">{{ content }}</div>
+    <aside class="article-aside">
+      <a href="{{ '/' | relative_url }}">← 返回文章列表</a>
+      {% if page.tags.size > 0 %}<div class="aside-block"><p class="card-label">标签</p><div class="tag-list">{% for tag in page.tags %}<span>#{{ tag }}</span>{% endfor %}</div></div>{% endif %}
+    </aside>
+  </div>
+</article>

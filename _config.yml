@@ -1,0 +1,50 @@
+# 博客基本配置：部署前请修改 url、baseurl、title、author 和 social。
+title: "期末复习资料发布栏"
+description: "整理并发布各课程期末复习资料、参考重点与学习笔记。"
+url: "https://你的用户名.github.io"
+baseurl: "/csu-theory" # 用户站点填 ""；项目站点填 "/仓库名"
+lang: "zh-CN"
+timezone: "Asia/Shanghai"
+
+author:
+  name: "你的名字"
+  avatar: "/assets/images/avatar.svg"
+  bio: "课程资料整理与学习交流"
+  location: "中国"
+  email: "you@example.com"
+  github: "你的 GitHub 用户名"
+
+social:
+  github: "https://github.com/你的用户名"
+  email: "mailto:you@example.com"
+
+markdown: kramdown
+highlighter: rouge
+permalink: /posts/:year/:month/:day/:title/
+paginate: 6
+paginate_path: "/page:num/"
+excerpt_separator: "<!--more-->"
+
+plugins:
+  - jekyll-feed
+  - jekyll-seo-tag
+  - jekyll-sitemap
+  - jekyll-paginate
+
+exclude:
+  - README.md
+  - Gemfile
+  - Gemfile.lock
+  - node_modules
+  - vendor
+  - .github
+
+kramdown:
+  input: GFM
+  syntax_highlighter: rouge
+  syntax_highlighter_opts:
+    block:
+      line_numbers: false
+
+sass:
+  style: compressed
