@@ -19,8 +19,6 @@ permalink: /about/
 - **其他课程**：后续根据需要持续添加
 
 ## 联系我
-
-- GitHub：[@{{ site.author.github }}](https://github.com/{{ site.author.github }})
 - Email：[{{ site.author.email }}](mailto:{{ site.author.email }})
 
 > 资料仅供学习交流参考，请勿将整理内容视为正式考试答案。
