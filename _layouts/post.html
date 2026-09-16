@@ -11,7 +11,6 @@ layout: default
     <div class="article-body">{{ content }}</div>
     <aside class="article-aside">
       <a href="{{ '/' | relative_url }}">← 返回文章列表</a>
-      {% if page.tags.size > 0 %}<div class="aside-block"><p class="card-label">标签</p><div class="tag-list">{% for tag in page.tags %}<span>#{{ tag }}</span>{% endfor %}</div></div>{% endif %}
     </aside>
   </div>
 </article>
