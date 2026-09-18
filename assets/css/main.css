@@ -49,7 +49,7 @@ a { color:inherit; text-decoration:none; }
   letter-spacing:.02em;
 }
 .separator { color:#b1b8be; }
-.notice-label {border:1px solid #c7d8e8;padding:2px 8px;color:var(--accent);font-size:13px;font-weight:600;line-height:1.4;}
+.notice-label {border:1px solid #c7d8e8;padding:2px 8px;color:var(--accent);font-size:16px;font-weight:600;line-height:1.4;}
 .notice-arrow { padding-top:18px; color:var(--accent); font-size:22px; }
 .notice-arrow:hover { color:var(--accent-dark); }
 .pagination { display:flex; justify-content:center; align-items:center; gap:20px; margin-top:34px; color:var(--muted); font-size:13px; }
