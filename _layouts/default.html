@@ -39,6 +39,7 @@
         </div>
         <div class="footer-links">
           {% if site.social.email %}<a href="{{ site.social.email }}">邮件</a>{% endif %}
+            {% if site.social.qq %}<a href="{{ site.social.qq }}">QQ</a>{% endif %}
         </div>
       </div>
       <div class="container copyright">© {{ 'now' | date: '%Y' }} {{ site.title }}</div>
