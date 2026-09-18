@@ -78,8 +78,23 @@ a { color:inherit; text-decoration:none; }
 .article-body code { background:var(--soft); padding:2px 5px; font-size:.9em; }
 .article-body pre { overflow:auto; border:1px solid var(--line); padding:16px; background:#f5f6f7; }
 .article-body pre code { background:none; }
-.article-aside { color:var(--muted); font-size:13px; }
-.article-aside>a { color:var(--accent); }
+.article-aside {
+  color:var(--muted);
+  font-size:16px;
+  font-weight:600;
+}
+.article-aside>a {
+  display:inline-block;
+  color:var(--accent);
+  padding:8px 12px;
+  border:1px solid var(--accent);
+  border-radius:4px;
+  transition:.2s;
+}
+.article-aside>a:hover {
+  background:var(--accent);
+  color:#fff;
+}
 .aside-block { border-top:1px solid var(--line); margin-top:30px; padding-top:15px; }
 .tag-list { display:flex; flex-wrap:wrap; gap:6px; color:var(--accent); }
 .standard-page .article-body { max-width:760px; margin:auto; }
