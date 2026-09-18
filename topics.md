@@ -1,7 +1,7 @@
 ---
 layout: page
-title: 课程分类
-kicker: COURSE CATEGORIES
+title: 分类
+kicker: CATEGORIES
 description: 按课程查看期末复习资料、重点整理和参考内容。
 permalink: /topics/
 ---
