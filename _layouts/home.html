@@ -2,7 +2,7 @@
 layout: default
 ---
 <section class="notice-intro">
-  <div><p class="eyebrow">最新消息</p><h1>{{ site.title }}</h1><p>{{ site.description }}</p></div>
+  <div><p class="eyebrow">网站信息</p><h1>{{ site.title }}</h1><p>{{ site.description }}</p></div>
   <div class="notice-date">本学期资料预计于2027年1月整理<br><span>教学周倒数第2周，敬请期待！</span></div>
   <div class="notice-date">联系QQ：718123472<br><span>欢迎联系</span></div>
 </section>
@@ -18,7 +18,7 @@ layout: default
   </aside>
 
   <section id="latest" class="notice-list-section">
-    <div class="list-heading"><h2>最新发布</h2><a href="{{ '/topics/' | relative_url }}">查看全部课程 →</a></div>
+    <div class="list-heading"><h2>最新消息</h2><a href="{{ '/topics/' | relative_url }}">查看全部课程 →</a></div>
     {% if paginator.posts.size > 0 %}<div class="notice-list">
       {% for post in paginator.posts %}<article class="notice-item"><div class="notice-index">{{ forloop.index | prepend: '0' | slice: -2, 2 }}</div><div class="notice-main"><div class="post-meta"><time datetime="{{ post.date | date_to_xmlschema }}">{{ post.date | date: "%Y-%m-%d" }}</time>{% if post.categories.first %}<span class="separator">|</span><span>{{ post.categories | join: ' / ' }}</span>{% endif %}{% if post.featured %}<span class="notice-label">重点</span>{% endif %}</div><h3><a href="{{ post.url | relative_url }}">{{ post.title }}</a></h3><p>{{ post.excerpt | strip_html | strip_newlines | truncate: 150 }}</p></div><a class="notice-arrow" href="{{ post.url | relative_url }}" aria-label="查看资料">→</a></article>{% endfor %}
     </div>{% else %}<div class="empty-state"><h3>暂未发布资料</h3><p>在 <code>_posts</code> 文件夹中添加 Markdown 文件即可发布。</p></div>{% endif %}
