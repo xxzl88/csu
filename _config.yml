@@ -15,9 +15,9 @@ author:
   github: "xxzl88"
 
 social:
-  github: "https://github.com/xxzl88"
   email: "mailto:xxzl88@qq.com"
-
+  qq: "tencent://message/?uin=718123472"
+  
 markdown: kramdown
 highlighter: rouge
 permalink: /posts/:year/:month/:day/:title/
