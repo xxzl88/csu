@@ -1,7 +1,6 @@
 ---
 layout: post
 title: "习近平新时代中国特色社会主义思想概论：期末复习重点"
-description: 
 date: 2026-09-15 10:00:00 +0800
 categories: [习概]
 tags: [期末复习, 章节重点]
