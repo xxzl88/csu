@@ -4,14 +4,6 @@
   const $ = (selector, root = document) => root.querySelector(selector);
   const $$ = (selector, root = document) => [...root.querySelectorAll(selector)];
 
-  const savedTheme = localStorage.getItem('blog-theme');
-  if (savedTheme === 'dark' || (!savedTheme && window.matchMedia('(prefers-color-scheme: dark)').matches)) document.documentElement.dataset.theme = 'dark';
-  const themeButton = $('.theme-toggle');
-  if (themeButton) themeButton.addEventListener('click', () => {
-    const dark = document.documentElement.dataset.theme === 'dark';
-    document.documentElement.dataset.theme = dark ? 'light' : 'dark';
-    localStorage.setItem('blog-theme', dark ? 'light' : 'dark');
-  });
   const menuButton = $('.menu-toggle');
   const nav = $('.site-nav');
   if (menuButton && nav) menuButton.addEventListener('click', () => { const open = nav.classList.toggle('open'); menuButton.setAttribute('aria-expanded', String(open)); });
