@@ -18,7 +18,7 @@ layout: default
   </aside>
 
   <section id="latest" class="notice-list-section">
-    <div class="list-heading"><h2>最新消息</h2><a href="{{ '/topics/' | relative_url }}">查看全部</a></div>
+    <div class="list-heading"><h2>最新消息</h2>、</div>
     {% if paginator.posts.size > 0 %}<div class="notice-list">
       {% assign page_offset = paginator.page | minus: 1 | times: site.paginate %}
       {% for post in paginator.posts %}{% assign post_number = page_offset | plus: forloop.index %}<article class="notice-item"><div class="notice-index">{{ post_number }}</div><div class="notice-main"><div class="post-meta"><time datetime="{{ post.date | date_to_xmlschema }}">{{ post.date | date: "%Y-%m-%d" }}</time>{% if post.categories.first %}<span class="separator">|</span><span>{{ post.categories | join: ' / ' }}</span>{% endif %}{% if post.featured %}<span class="notice-label">最新</span>{% endif %}</div><h3><a href="{{ post.url | relative_url }}">{{ post.title }}</a></h3><p>{{ post.excerpt | strip_html | strip_newlines | truncate: 150 }}</p></div></article>{% endfor %}
