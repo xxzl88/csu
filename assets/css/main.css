@@ -189,29 +189,6 @@ a:focus-visible,button:focus-visible,input:focus-visible { outline:3px solid var
 @media (max-width:760px) { .notice-intro{display:block;padding-top:38px}.board-layout{grid-template-columns:1fr;gap:30px}.board-sidebar{border-right:0;border-bottom:1px solid var(--line);padding:0 0 18px}.side-section{margin:0}.side-section a{display:inline-flex;margin-right:7px;border:1px solid var(--line);padding:4px 9px}.article-page,.standard-page{padding:42px 22px 60px}.article-layout{display:block}.article-header h1,.standard-header h1{font-size:30px}.article-header .post-meta{margin-top:18px;font-size:15px}.article-body{font-size:16px;line-height:1.9}.article-body h2{font-size:20px}.article-body h3{font-size:18px}.topic-results{grid-template-columns:1fr} }
 @media (max-width:560px) { .container{width:calc(100% - 28px)}.menu-toggle{display:block}.site-nav{display:none;position:absolute;left:14px;right:14px;top:58px;flex-direction:column;align-items:stretch;gap:0;border:1px solid var(--line);padding:7px;background:#fff}.site-nav.open{display:flex}.site-nav a{padding:7px 10px}.nav-wrap{min-height:60px}.footer-wrap{display:block}.footer-links{margin-top:15px}.notice-item{grid-template-columns:28px minmax(0,1fr);gap:8px}.notice-index{font-size:13px}.notice-main h3{font-size:16px} }
 @media (max-width:560px) { .site-nav{color:var(--text)}.site-nav a:hover{background:var(--soft);color:var(--accent)} }
-.wechat-qrcode {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-
-  margin: 35px auto 20px;
-  padding: 18px;
-
-  text-align: center;
-
-  background: #fff;
-  color: #18383a;
-
-  color-scheme: light;
-  forced-color-adjust: none;
-
-  border-radius: 12px;
-}
-/* =========================
-   文章正文图片
-   ========================= */
-
 .article-body img {
   display: block;
   max-width: 100%;
@@ -219,7 +196,6 @@ a:focus-visible,button:focus-visible,input:focus-visible { outline:3px solid var
   margin: 28px auto;
   border-radius: 6px;
 }
-
 /* 图片说明文字 */
 .article-body img + em,
 .article-body img + p {
@@ -227,7 +203,6 @@ a:focus-visible,button:focus-visible,input:focus-visible { outline:3px solid var
   color: var(--muted);
   font-size: 13px;
 }
-
 /* 公众号图片：居中、限制尺寸 */
 .article-body img[alt*="公众号"] {
   width: min(420px, 80%);
@@ -239,7 +214,6 @@ a:focus-visible,button:focus-visible,input:focus-visible { outline:3px solid var
   border-radius: 8px;
   box-shadow: 0 3px 12px rgba(0, 101, 110, .08);
 }
-
 /* 文章中的普通段落也保持视觉居中 */
 .article-body .image-center,
 .article-body p:has(img) {
@@ -247,38 +221,9 @@ a:focus-visible,button:focus-visible,input:focus-visible { outline:3px solid var
   text-indent: 0;
 }
 
-/* 手机端 */
-@media (max-width: 560px) {
-  .article-body img {
-    max-width: 94%;
-    margin: 24px auto;
-  }
-
-  .article-body img[alt*="公众号"] {
-    width: 86%;
-    padding: 6px;
-    margin: 28px auto;
-  }
-}
-
-.wechat-name {
-  display: flex;
-  justify-content: center;
-  margin: 22px 0 42px;
-}
-.wechat-name span {
-  display: inline-block;
-  padding: 8px 24px;
-  border: 1px solid var(--line);
-  border-radius: 6px;
-  background: var(--accent-pale);
-  color: var(--accent-dark);
-  font-family: var(--sans);
-  font-size: 20px;
-  font-weight: 700;
-  letter-spacing: .08em;
-}
-
+/* =========================
+   微信二维码：始终保持清晰黑白
+   ========================= */
 .wechat-qrcode {
   display: flex;
   flex-direction: column;
@@ -290,11 +235,11 @@ a:focus-visible,button:focus-visible,input:focus-visible { outline:3px solid var
 
   text-align: center;
 
-  background: #fff;
-  color: #18383a;
+  background: #fff !important;
+  color: #18383a !important;
 
-  color-scheme: light;
-  forced-color-adjust: none;
+  color-scheme: light !important;
+  forced-color-adjust: none !important;
 
   border-radius: 12px;
 }
@@ -305,21 +250,83 @@ a:focus-visible,button:focus-visible,input:focus-visible { outline:3px solid var
   max-width: 100%;
   height: auto;
 
-  /* 强制二维码保持黑白 */
-  background: #fff;
-  color-scheme: light;
+  background: #fff !important;
+  color-scheme: light !important;
+  forced-color-adjust: none !important;
+
+  filter: none !important;
+  opacity: 1 !important;
+  mix-blend-mode: normal !important;
 
   padding: 10px;
   border: 1px solid #d2e6e6;
   border-radius: 10px;
 
   box-shadow: 0 5px 18px rgba(0, 101, 110, .10);
-
-  /* 防止部分浏览器深色模式修改图片 */
-  forced-color-adjust: none;
 }
 
 .wechat-qrcode p {
   margin: 14px 0 0;
   color: var(--muted);
   font-family: var(--sans);
+}
+
+/* =========================
+   打印：尽量保持屏幕显示效果
+   保留 Header / Footer / 背景色
+   ========================= */
+@media print {
+  *,
+  *::before,
+  *::after {
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
+  }
+
+  html,
+  body {
+    background: var(--bg) !important;
+    color: var(--text) !important;
+  }
+
+  .site-header {
+    background: linear-gradient(120deg, var(--accent), var(--accent-dark)) !important;
+    color: var(--on-accent) !important;
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
+  }
+
+  .site-footer {
+    background: var(--accent-deep) !important;
+    color: #d8f0f0 !important;
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
+  }
+
+  .article-page,
+  .standard-page {
+    background: var(--surface) !important;
+    box-shadow: none !important;
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
+  }
+
+  .notice-label,
+  .topic-filter,
+  .search-input,
+  .wechat-qrcode,
+  .wechat-qrcode img {
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
+  }
+
+  .wechat-qrcode,
+  .wechat-qrcode img {
+    background: #fff !important;
+    color-scheme: light !important;
+    forced-color-adjust: none !important;
+    filter: none !important;
+    opacity: 1 !important;
+    mix-blend-mode: normal !important;
+  }
+}
