@@ -12,7 +12,7 @@ layout: default
   <aside class="board-sidebar">
     <section class="side-section">
       <h2>全部信息</h2>
-      <a class="side-all active" href="{{ '/' | relative_url }}">全部</a>
+      <a class="side-all active" href="{{ '/' | relative_url }}">全部信息</a>
       {% for category in site.categories %}<a href="{{ '/topics/' | relative_url }}?category={{ category[0] | url_encode }}">{{ category[0] }} <span>{{ category[1].size }}</span></a>{% endfor %}
     </section>
   </aside>
