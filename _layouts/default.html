@@ -35,14 +35,14 @@
     <footer class="site-footer">
       <div class="container footer-wrap">
         <div>
-          <strong>{{ site.title }}</strong>
+          <strong>联系方式</strong>
         </div>
         <div class="footer-links">
           {% if site.social.email %}<a href="{{ site.social.email }}">邮件</a>{% endif %}
             {% if site.social.qq %}<a href="{{ site.social.qq }}">QQ</a>{% endif %}
         </div>
       </div>
-      <div class="container copyright">© 2023- {{ 'now' | date: '%Y' }} {{ site.title }} - 版权所有，请勿转卖个人资料！</div>
+      <div class="container copyright">© 2023- {{ 'now' | date: '%Y' }} {{ site.title }} | 版权所有，请勿转卖</div>
     </footer>
     <script src="{{ '/assets/js/main.js' | relative_url }}" defer></script>
   </body>
