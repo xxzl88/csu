@@ -17,6 +17,7 @@
   if (topicApp) {
     const filters = $('#topic-filters'); const results = $('#topic-results'); const pagination = $('#topic-pagination');
     const size = Number(topicApp.dataset.pageSize) || 8; let allPosts = []; let current = '全部'; let page = 1;
+    const requestedCategory = new URLSearchParams(window.location.search).get('category');
     function render() {
       const list = current === '全部' ? allPosts : allPosts.filter(p => categories(p).includes(current));
       const total = Math.max(1, Math.ceil(list.length / size)); page = Math.min(page, total);
@@ -25,7 +26,7 @@
       pagination.innerHTML = total > 1 ? `<button class="topic-filter" data-page="prev" ${page === 1 ? 'disabled' : ''}>←</button><span>第 ${page} / ${total} 页</span><button class="topic-filter" data-page="next" ${page === total ? 'disabled' : ''}>→</button>` : '';
       $$('[data-page]', pagination).forEach(btn => btn.addEventListener('click', () => { page += btn.dataset.page === 'next' ? 1 : -1; render(); window.scrollTo({ top: results.offsetTop - 90, behavior: 'smooth' }); }));
     }
-    loadPosts().then(posts => { allPosts = posts; [...new Set(posts.flatMap(categories))].sort().forEach(category => { const button = document.createElement('button'); button.className = 'topic-filter'; button.dataset.category = category; button.textContent = category; filters.appendChild(button); }); $$('.topic-filter', filters).forEach(btn => btn.addEventListener('click', () => { current = btn.dataset.category; page = 1; $$('.topic-filter', filters).forEach(x => x.classList.toggle('active', x === btn)); render(); })); render(); }).catch(() => { results.innerHTML = '<p class="loading">文章索引加载失败，请稍后重试。</p>'; });
+    loadPosts().then(posts => { allPosts = posts; const availableCategories = [...new Set(posts.flatMap(categories))].sort(); availableCategories.forEach(category => { const button = document.createElement('button'); button.className = 'topic-filter'; button.dataset.category = category; button.textContent = category; filters.appendChild(button); }); if (requestedCategory && availableCategories.includes(requestedCategory)) current = requestedCategory; $$('.topic-filter', filters).forEach(btn => { btn.classList.toggle('active', btn.dataset.category === current); btn.addEventListener('click', () => { current = btn.dataset.category; page = 1; $$('.topic-filter', filters).forEach(x => x.classList.toggle('active', x === btn)); render(); }); }); render(); }).catch(() => { results.innerHTML = '<p class="loading">文章索引加载失败，请稍后重试。</p>'; });
   }
 
   const searchInput = $('#search-input');
