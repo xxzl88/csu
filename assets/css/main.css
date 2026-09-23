@@ -99,6 +99,7 @@ a:focus-visible,button:focus-visible,input:focus-visible { outline:3px solid var
   line-height: 1.25;
   font-weight: 600;
   text-align: center;
+  color:#0099a6;
 }
 .article-lead,.standard-header>p:last-child { color:var(--muted); }
 .article-header .post-meta {
