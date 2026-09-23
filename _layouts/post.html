@@ -8,10 +8,9 @@ layout: default
   </header>
   <div class="article-layout">
     <div class="article-body">{{ content }}</div>
-    <!--
-    <aside class="article-aside">
-      <a href="{{ '/' | relative_url }}">返回</a>
-    </aside>
-    -->
+    <section class="article-qrcode" aria-label="本文二维码">
+      <p>扫码在手机上查看本文</p>
+      <img src="https://api.qrserver.com/v1/create-qr-code/?size=180x180&amp;format=svg&amp;ecc=M&amp;data={{ page.url | absolute_url | url_encode }}" width="180" height="180" alt="《{{ page.title }}》二维码">
+    </section>
   </div>
 </article>
