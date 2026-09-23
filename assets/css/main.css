@@ -194,3 +194,135 @@ a:focus-visible,button:focus-visible,input:focus-visible { outline:3px solid var
     display: none !important;
   }
 }
+/* =========================
+   文章正文图片
+   ========================= */
+
+.article-body img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+  margin: 28px auto;
+  border-radius: 6px;
+}
+
+/* 图片说明文字 */
+.article-body img + em,
+.article-body img + p {
+  text-align: center;
+  color: var(--muted);
+  font-size: 13px;
+}
+
+/* 公众号图片：居中、限制尺寸 */
+.article-body img[alt*="公众号"] {
+  width: min(420px, 80%);
+  height: auto;
+  margin: 35px auto;
+  background: #fff;
+  border: 1px solid var(--line);
+  padding: 8px;
+  border-radius: 8px;
+  box-shadow: 0 3px 12px rgba(0, 101, 110, .08);
+}
+
+/* 文章中的普通段落也保持视觉居中 */
+.article-body .image-center,
+.article-body p:has(img) {
+  text-align: center;
+  text-indent: 0;
+}
+
+/* 手机端 */
+@media (max-width: 560px) {
+  .article-body img {
+    max-width: 94%;
+    margin: 24px auto;
+  }
+
+  .article-body img[alt*="公众号"] {
+    width: 86%;
+    padding: 6px;
+    margin: 28px auto;
+  }
+}
+然后你原来的 Markdown：
+
+![公众号图片](https://xxzl88.github.io/csu/assets/photos/2026/gzh.png "公众号图片")
+就可以继续使用。
+
+不过我更推荐你把文章这一部分改一下
+你现在：
+
+## （一）个人公众号名称（下面的四个字母加上数字88，直接微信搜索即可）
+xxzl88
+## （二）扫码方法关注公众号
+![公众号图片](https://xxzl88.github.io/csu/assets/photos/2026/gzh.png "公众号图片")
+视觉上会有点散。
+
+可以改成：
+
+## （一）个人公众号名称
+
+下面的四个字母加上数字 88，直接微信搜索即可。
+
+<div class="wechat-name">
+  <span>xxzl88</span>
+</div>
+
+## （二）扫码关注公众号
+
+<div class="wechat-qrcode">
+  <img src="https://xxzl88.github.io/csu/assets/photos/2026/gzh.png" alt="微信公众号二维码">
+  <p>微信扫一扫，关注公众号</p>
+</div>
+然后 CSS 加：
+
+/* =========================
+   微信公众号区域
+   ========================= */
+
+.wechat-name {
+  display: flex;
+  justify-content: center;
+  margin: 22px 0 42px;
+}
+
+.wechat-name span {
+  display: inline-block;
+  padding: 8px 24px;
+  border: 1px solid var(--line);
+  border-radius: 6px;
+  background: var(--accent-pale);
+  color: var(--accent-dark);
+  font-family: var(--sans);
+  font-size: 20px;
+  font-weight: 700;
+  letter-spacing: .08em;
+}
+
+.wechat-qrcode {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin: 35px auto 20px;
+  text-align: center;
+}
+
+.wechat-qrcode img {
+  display: block;
+  width: min(360px, 78vw);
+  max-width: 100%;
+  height: auto;
+  padding: 10px;
+  background: #fff;
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  box-shadow: 0 5px 18px rgba(0, 101, 110, .10);
+}
+
+.wechat-qrcode p {
+  margin: 14px 0 0;
+  color: var(--muted);
+  font-family: var(--sans);
