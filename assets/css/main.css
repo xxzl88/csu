@@ -115,7 +115,12 @@ a { color:inherit; text-decoration:none; }
   font-size:18px;
   font-weight:600;
 }
-.article-body p { margin:0 0 20px; }
+.article-body p {
+  margin:0 0 20px;
+  font-family:FangSong, "FangSong_GB2312", STFangsong, serif;
+  text-align:justify;
+  text-indent:2em;
+}
 .article-body blockquote { border-left:3px solid var(--accent); margin:24px 0; padding:4px 18px; color:var(--muted); }
 .article-body code { background:var(--soft); padding:2px 5px; font-size:.9em; }
 .article-body pre { overflow:auto; border:1px solid var(--line); padding:16px; background:#f5f6f7; }
